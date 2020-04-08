@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Array shuffle</title>
+</head>
+<body>
+    <script>
+
+        var shuffleByFisherAndYates = function (nums) {
+            for (let i = nums.length; i; --i) {
+                let randomIndex = parseInt(Math.random() * i);
+                [nums[i - 1], nums[randomIndex]] = [nums[randomIndex], nums[i - 1]];
+            }
+            return nums;
+        }
+
+        var shuffleBySort = function (nums) {
+            nums.sort(() => { return Math.random() - 0.5 });
+            return nums;
+        }
+
+        var shuffleBySplice = function (nums) {
+            var shuffleResult = [];
+            let bound = nums.length;
+            for (let i = 0; i < bound; ++i) {
+                let randomIndex = parseInt(Math.random() * (bound - i));
+                let remove = nums.splice(randomIndex, 1);
+                shuffleResult.push(remove[0]);
+            }
+            return shuffleResult;
+
+        }
+
+        var getShuffleResult = function (nums, shuffleFunction) {
+
+            let times = 10000;
+            let res = {};
+
+            for (let i = 0; i < times; ++i) {
+                let tmp = shuffleFunction(nums.concat());
+                let key = JSON.stringify(tmp);
+                res[key] ? res[key]++ : res[key] = 1;
+            }
+
+            for (let key in res) {
+                res[key] = res[key] / times * 100 + '%';
+            }
+
+            return res;
+        }
+
+        // main part
+        let arr = [1, 2, 3];
+        console.log("shuffleByFisherAndYates ", getShuffleResult(arr, shuffleByFisherAndYates));
+        console.log("shuffleBySplice ", getShuffleResult(arr, shuffleBySplice));
+        console.log("shuffleBySort ", getShuffleResult(arr, shuffleBySort));
+
+    </script>
+</body>
+
+</html>
