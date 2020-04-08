@@ -96,7 +96,7 @@ var getShuffleResult = function(nums, shuffleFunction){
 }
 ```
 
-<img src="pics\shuffle_result.png" style="zoom:50%;" />
+<img src="pics\shuffle_result.png" width="500" />
 
 ----
 
@@ -106,7 +106,7 @@ var getShuffleResult = function(nums, shuffleFunction){
 
 - [JavaScript 中使用 concat() 深度复制数组](https://segmentfault.com/q/1010000011850950)
 
-- [ javascript 数组随机排序 ] (https://github.com/mqyqingfeng/Blog/issues/51 )
+- [ javascript 数组随机排序](https://github.com/mqyqingfeng/Blog/issues/51 )
 
   
 
