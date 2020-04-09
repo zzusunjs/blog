@@ -73,6 +73,8 @@ var showName = function(a, b){
     };
 }
 console.log(showName.call2(obj, 100, 200));
+// alice
+// {a: 100, b: 200, sum: 300}
 ```
 
 ### 手动实现 apply
@@ -98,9 +100,9 @@ Function.prototype.apply2 = function(objContext, array){
 }
 
 console.log(showName.apply2(obj, [1000, 2000]));
+// alice
+// {a: 1000, b: 2000, sum: 3000}
 ```
-
-
 
 参考文献
 
