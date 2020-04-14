@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 两栏布局2 flex布局实现</title>
+    <style>
+        .parent{
+            display: flex;
+            height: 100px;
+        }
+        .left{
+            flex-shrink: 0;
+            flex-grow: 0;
+            /* width: 200px; */
+            flex-basis: 200px;
+            /* 上面两种写法都可以 */
+            background-color: aquamarine;
+        }
+        .right{
+            flex: auto;
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+    
+</body>
+</html>

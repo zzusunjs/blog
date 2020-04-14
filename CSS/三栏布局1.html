@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三栏布局1-绝对定位</title>
+    <style>
+        /*（1）利用绝对定位的方式，左右两栏设置为绝对定位，中间设置对应方向大小的margin的值。*/
+        .parent{
+            position: relative;
+            height: 100px;
+        }
+        .left{
+            position: absolute;
+            height: 100px;
+            width: 300px;
+            background-color: aquamarine;
+        }
+        .content{
+            width: auto;
+            height: 100px;
+            background-color: tomato;
+            margin-left: 100px;
+            margin-right: 200px;
+        }
+        .right{
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            top: 0;
+            right: 0;
+            background-color: blueviolet;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="left"></div>
+        <div class="content"></div>
+        <div class="right"></div>
+    </div>
+    
+</body>
+</html>

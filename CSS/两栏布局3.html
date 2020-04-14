@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>两栏布局3-绝对定位布局</title>
+    <style>
+        /* （3）第三种是利用绝对定位布局的方式，
+        将父级元素设置相对定位。左边元素设置为absolute定位，
+        并且宽度设置为200px。将右边元素的margin-left的值设置为200px。 */
+        .parent{
+            position: relative;
+        }
+        .left{
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            background-color: aquamarine;
+        }
+        .right{
+            width: auto;
+            height: 100px;
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+</body>
+</html>

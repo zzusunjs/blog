@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css布局之垂直居中，两列等高，自适应宽</title>
+    <style>
+        .box-one{
+            width: 800px;
+            height: 400px;
+            background-color: aliceblue;
+            margin: 0 auto; 
+            /* 设置box-one 水平居中 */
+        }
+        .content-box{
+            margin: 0 auto;
+            vertical-align: middle;
+            background-color: aquamarine;
+            /* width: 600px;
+            height: 300px; */
+            width: max-content;
+            font-size: 0;
+        }
+        span{
+           
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box-one">
+        <div class="content-box">
+            <span>垂直居中</span>
+        </div>
+    </div>
+</body>
+</html>

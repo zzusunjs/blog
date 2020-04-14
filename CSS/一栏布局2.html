@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一栏布局2-header与footer等宽,content略窄的单列布局</title>
+    <style>
+        .header{
+            max-width: 1000px;
+            background-color: aquamarine;
+            height: 100px;
+            margin: 0 auto;
+        }
+        .nav{
+            max-width: 800px;
+            background-color: gray;
+            margin: 0 auto;
+            height: 50px;
+
+        }
+        .content{
+            max-width: 960px;
+            background-color: blueviolet;
+            height: 400px;
+            margin: 0 auto;
+            border-top: 10px solid white;
+            border-bottom: 10px solid white;
+        }
+        .footer{
+            max-width: 1000px;
+            background-color: blue;
+            height: 100px;
+            margin: 0 auto;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="nav"></div>
+    </div>
+    <div class="content"></div>
+    <div class="footer"></div>
+</body>
+</html>

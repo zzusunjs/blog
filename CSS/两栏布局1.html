@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>两栏布局1-float+margin-left</title>
+    <style>
+        /*（1）利用浮动，将左边元素宽度设置为200px，
+        并且设置向左浮动。将右边元素的margin-left设置为200px，
+        宽度设置为auto（默认为auto，撑满整个父元素）。*/
+        .parent{
+            height: 100px;
+        }
+        .left{
+            width: 200px;
+            height: 100px;
+            float: left;
+            background-color: aquamarine;
+        }
+        .right{
+            width: auto;
+            height: 100px;
+            background-color: blueviolet;
+            margin-left: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+</body>
+</html>

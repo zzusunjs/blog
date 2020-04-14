@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一栏布局1-header,content和footer等宽的单列布局</title>
+    <style>
+        /* 对于第一种，先通过对header,content,footer统一设置width：1000px;
+        或者max-width：1000px(这两者的区别是当屏幕小于1000px时，前者会出现滚动条，后者则不会，显示出实际宽度);
+        然后设置margin:auto实现居中即可得到。 */
+        .header{
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: aquamarine;
+            height: 100px;
+        }
+        .content{
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: blueviolet;
+            height: 400px;
+            border-top: white 10px solid;
+            border-bottom: 10px white solid;
+        }
+
+        .footer{
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: blue;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header"></div>    
+    <div class="content"></div>
+    <div class="footer"></div>
+</body>
+</html>
