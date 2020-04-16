@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水平居中</title>
+    <style>
+        .box1{
+            width: 300px;
+            height: 300px;
+            margin: auto;
+            background-color: pink;
+        }
+
+        /* 外层元素设置为 text-align:center; 内层块状元素设置为 inline-block */
+        .box2-container{
+            background-color: blueviolet;
+            text-align: center;
+        }
+        .box2{
+            margin: 20px 0px;
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+            display: inline-block;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2-container">
+        <div class="box2"></div>
+    </div>
+    
+</body>
+</html>
