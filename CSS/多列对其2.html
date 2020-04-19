@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多列对其2-table</title>
+    <style>
+        .container{
+            display: table;
+            border: 1px solid red;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .left, .center, .right{
+            display: table-cell;
+            width: 200px;
+            /* background-color: teal; */
+            border: 1px solid teal;
+            margin: 0 30px;
+            /* 不生效 */
+        }
+        p{
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <p>table元素中的table-cell元素默认就是等高的。
+                table元素中的table-cell元素默认就是等高的。
+                table元素中的table-cell元素默认就是等高的。
+                table元素中的table-cell元素默认就是等高的。
+                table元素中的table-cell元素默认就是等高的。
+                table元素中的table-cell元素默认就是等高的。
+                table元素中的table-cell元素默认就是等高的。
+            </p>
+        </div>
+        <div class="center">
+            <p>table元素中的table-cell元素默认就是等高的。
+            </p>
+        </div>
+        <div class="right">
+            <p>table元素中的table-cell元素默认就是等高的。
+                table元素中的table-cell元素默认就是等高的。
+                table元素中的table-cell元素默认就是等高的。
+            </p>
+        </div>
+    </div>
+</body>
+</html>

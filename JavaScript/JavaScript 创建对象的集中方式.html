@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript创建对象的几种方式</title>
+</head>
+<body>
+    <script>
+
+        // 工厂函数模式,通过一个函数封装对象的创建过程，好处是封装，坏处是重复创建函数属性
+        var objFactory = function(name, gender, age){
+            var o = new Object();
+            o.name = name;
+            o.gender = gender;
+            o.age = age;
+            o.hello = function(){
+                console.log(`hello from ${this.name}`);
+            }
+            return o;
+        }
+
+        let alice = objFactory("Alice", 'female', "22");
+        console.log(alice);
+        alice.hello();
+        
+        // 原型模式，将对象的所有属性和方法都绑定到函数的原型对象身上。搭配new 关键字，得出的对象就能指向构造函数的原型对象。
+        // 缺点是 所有 new 出来的对象都有着相同的方法和属性，封装性也不好
+        var objProto = function(){
+        }
+        objProto.prototype.name = "Bob";
+        objProto.prototype.age  = 23;
+        objProto.prototype.gender = 'male';
+        objProto.prototype.hello = function(){
+            console.log(`hello from ${this.name}`);
+        }
+
+        let bob = new objProto();
+        console.log(bob);
+        bob.hello();
+        
+
+        // 构造函数模式, 通过构造函数初始化对象，需要搭配new 关键字使用。
+        // 使用new 关键字创建对象，然后执行构造函数初始化对象，初始化函数中的this 指向new 出来的对象。
+        // 好处是便于封装，类似于工厂模式，坏处是同一个函数对象会被多次构造
+        var init = function(name, age, gender){
+            this.name = name;
+            this.age  = age;
+            this.gender = gender;
+            this.hello = function(){
+                console.log(`hello from ${this.name}`);
+            }
+        }
+
+        let jack = new init("jack", 24, 'male');
+        console.log(jack);
+        jack.hello();
+
+        // 组合使用构造函数模式和原型模式，就是把函数放到原型对象中，封装性不好，但是效率高
+        var initAttrOnly = function(name, age, gender){
+            this.name = name;
+            this.age  = age;
+            this.gender = gender;
+        } 
+        initAttrOnly.prototype.hello = function(){
+            console.log(`hello from ${this.name}`);
+            // 谁调用就指向谁
+        }
+        
+
+        let rose = new initAttrOnly("rose", 25, 'female');
+        console.log(rose);
+        console.log(initAttrOnly.prototype);
+        rose.hello();
+        initAttrOnly.prototype.hello();
+
+        // 动态原型模式，组合使用构造函数和原型模式，在构造函数中 添加 原型，每次执行构造函数时进行判断，添加
+        // 原型的代码仅仅执行一次.封装性更好，效率也OK,较为常用
+        var dynamicProto = function(name, age, gender){
+            this.name = name;
+            this.age  = age;
+            this.gender = gender;
+            if(dynamicProto.prototype.hello === void 0){
+                console.log("building proto");
+                dynamicProto.prototype.hello = function(){
+                    console.log(`hello from ${this.name}`);
+                }
+            }
+        }
+
+        let haier1 = new dynamicProto("haier1", 20, 'male');
+        let haier2 = new dynamicProto("haier2", 20, 'male');
+        console.log(haier1);
+        console.log(haier2);
+        haier1.hello();
+        haier2.hello();
+
+        // 寄生构造函数模型, 与工厂模式类似，但是通过在构造函数末尾返回模型修改了 new 对象的最终结果
+        // 可以用于扩展已有对象
+        var modifyInit = function(name, age, gender, fav){
+            var obj = new init(name, age, gender);
+            obj.fav = fav;
+            return obj;
+        }
+
+        let monica =  new modifyInit('monica', 23, 'female', 'game');
+        console.log(monica);
+        monica.hello();
+        console.log(typeof(monica));
+        console.log(monica instanceof init);
+        console.log(monica instanceof modifyInit);
+
+        // 寄生构造函数模式的另一种写法
+        var modifyInit2 = function(name, age, gender, fav){
+            var o = new Object();
+            o.name = name;
+            o.age  = age;
+            o.gender = gender;
+            o.fav    = fav;
+            o.hello  = function(){
+                console.log(`hello from ${this.name}`);
+            }
+            return o;
+        }
+
+        let monicaShallow = new modifyInit2('monicaShallow', 23, 'female', 'sport');
+        console.log(monicaShallow);
+        console.log(typeof(monicaShallow));
+        console.log(monicaShallow instanceof modifyInit2);
+
+        // 稳妥构造函数模式，创建对象的函数不使用 this ， 调用创建对象的函数不使用 new
+        // 仅能通过 函数访问 变量，有点像 private
+        // 稳妥构造函数的好处是安全性，缺点是和寄生构造函数一样，无法通过 instanceof 判断类型
+        var reliableInit = function(name, age, gender){
+            var o = new Object();
+            o.getName = function(){
+                console.log(`name: ${name}`);
+            }
+            o.getAge = function(){
+                console.log(`age: ${age}`);
+            }
+            o.getGender = function(){
+                console.log(`gender: ${gender}`);
+            }
+            o.hello = function(){
+                console.log(`hello from ${name}`);
+            }
+            return o;
+        }
+
+        let john = reliableInit('john', 23, 'male');
+        console.log(john);
+        john.hello();
+        john.getName();
+        john.getAge();
+        john.getGender();
+
+
+
+    </script>
+</body>
+</html>

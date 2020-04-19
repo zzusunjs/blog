@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自适应宽高的正方形</title>
+    <style>
+        .box1 {
+            width: 10%;
+            height: 0;
+            padding-top: 10%;
+            /* padding-bottom: 10%; */
+            background-color: tomato;
+        }
+
+        /* padding 部分也算在 backgound 内
+        padding-top padding-bottom任取其一
+        只需要在竖直方向上增加同样的高度即可 */
+
+        .box2 {
+            width: 15%;
+            height: 15vw;
+            background-color: teal;
+            /* https://www.runoob.com/cssref/css-units.html */
+            /* 设置高度为视窗高度的 15%  仅适用于高度也是视窗 同等距离的时候*/
+        }
+
+        .box3 {
+            width: 30%;
+            overflow: hidden;
+            background: yellow;
+        }
+
+        .box3::after {
+            content: "are you ok";
+            display: block;
+            width: 100%;
+            margin-bottom: 100%;
+            /* margin-top,padding-top,padding-bottom 都可以 */
+            /* 设置为 padding-top 或 padding-bottom 时，不需设置overflow hidden */
+            /* ::after 添加子元素，子元素的margin-top 按照 box3的width计算百分比 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+
+</body>
+
+</html>

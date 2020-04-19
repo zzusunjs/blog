@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多列对齐</title>
+    <style>
+        .container{
+            border: 1px solid red;
+            width: 660px;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* 设置居中 */
+
+            overflow: hidden;
+            /* 关键代码 */
+        }
+        .left, .center, .right{
+
+            float: left;
+            width: 200px;
+            background-color: tomato;
+            margin-left: 10px;
+            margin-right: 10px;
+
+            padding-bottom: 999px;
+            margin-bottom: -999px;
+            /* 关键代码 */
+        }
+        p{
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <p>元素设置的padding-bottom尽可能大一些，并且需要设置一样大小的
+                margin-bottom负值去抵消padding-bottom撑大的区域，
+                正负一抵消，对于页面布局不会有影响。另外的话还需要
+                设置父元素overflow：hidden把子元素多出来的色块背景隐藏掉。
+            </p>
+        </div>
+        <div class="center">
+            <p>元素设置的padding-bottom尽可能大一些，并且需要设置一样大小的
+                margin-bottom负值去抵消padding-bottom撑大的区域，
+                正负一抵消，对于页面布局不会有影响。另外的话还需要
+            </p>
+        </div>
+        <div class="right">
+            <p>元素设置的padding-bottom尽可能大一些，并且需要设置一样大小的
+                margin-bottom负值去抵消padding-bottom撑大的区域，
+                设置父元素overflow：hidden把子元素多出来的色块背景隐藏掉。
+            </p>
+        </div>
+    </div>
+</body>
+</html>
