@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数节流</title>
+    <style>
+        #container {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            width: 200px;
+            height: 200px;
+            border: 1px solid tomato;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script>
+        var count = 1;
+        var container = document.getElementById('container');
+
+        function getUserAction(e) {
+            console.log(count);
+            console.log("event ", e);
+            container.innerHTML = count++;
+        };
+        //container.onmousemove = getUserAction; 
+        //container.onmousemove = debounce(getUserAction, 100);
+        container.onmousemove = throttleByTimer(getUserAction, 100);
+
+        // 事件防抖，在频繁触发事件的时候，通过事件防抖降低事件触发频率，降低回调函数压力
+        function debounce(fn, wait) {
+            // 闭包，匿名函数中的变量就是在这声明的。
+            var timer = null;
+
+            return function () {
+                // 
+                // 设置 fn 函数调用时的 this 和 参数
+                var context = this,
+                    args = arguments;
+                // 如果此前存在定时器的话，取消之前的定时器重新计时
+                if (timer) {
+                    clearTimeout(timer);
+                    timer = null;
+                }
+                // 重新设定时器
+                timer = setTimeout(() => {
+                    fn.apply(context, args);
+                }, wait);
+            };
+        }
+
+        function throttle(func, wait) {
+            var pre = + new Date();
+
+            return function () {
+                var context = this,
+                    args = arguments,
+                    now = + new Date();
+                if (now - pre > wait) {
+                    func.apply(context, args);
+                    pre = now;
+                }
+            }
+        }
+
+        function throttleByTimer(func, wait) {
+            var timer = null;
+            return function () {
+                var context = this,
+                    args    = arguments;
+                if (!timer) {
+                    timer = setTimeout(function () {
+                        func.apply(context, args);
+                        timer = null;
+                    }, wait);
+                }
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>

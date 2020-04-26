@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>遍历节点</title>
+</head>
+<body>
+    <div class="root">
+        <div class="container">
+            <section class="sidebar">
+                <ul class="menu"></ul>
+            </section>
+            <section class="main">
+                <article class="post">
+                    <p class="copyright"></p>
+                </article>
+            </section>
+        </div>
+    </div>
+    <script>
+        // function walk(node){
+        //     console.log("node ", node);
+        //     while(node.firstChild)
+
+        // }
+        // walk(document.getElementsByClassName('root')[0]);
+        var create = function(){
+            let obj = new Object();
+                foo = [].splice.apply(arguments, [0,1])[0];
+                // 删除第一个元素，并取出该元素
+                args = [].slice.apply(arguments, [0]);
+                // 相当于 arguments.slice(0)
+            obj.__proto__ = foo.prototype;
+            let res = foo.apply(obj, args);
+            if(typeof res === 'object'){
+                return res;
+            }else{
+                return obj;
+            }
+        }
+
+        function Foo(name, age){
+            this.name = name;
+            this.age  = age;
+            this.hello = function(){
+                console.log("hello from " + this.name);
+            }
+        }
+
+        let alice = new Foo("alice", 22);
+        console.log(alice);
+        alice.hello();
+        let bob = create(Foo, "Bob", 22);
+        console.log(bob);
+        bob.hello();
+
+
+    </script>
+</body>
+</html>
