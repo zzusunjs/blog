@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>观察者模式</title>
+</head>
+
+<body>
+    <script>
+        var Observer = function (name) {
+            // 观察者的构造函数
+            this.name = name;
+            this.update = function (msg) {
+                console.log(`${this.name} get msg: ${msg}`);
+            }
+        }
+
+        var Subject = function (name) {
+            // 被观察者构造函数
+            this.name = name;
+
+            this.observers = [];
+
+            this.addObserver = function (observer) {
+                this.observers.push(observer);
+            }
+
+            this.removeObserver = function (observer) {
+                let index = this.observers.indexOf(observer);
+                if (index !== -1) {
+                    this.observers.splice(index, 1);
+                }
+            }
+
+            this.notifyAll = function () {
+                this.observers.forEach(observer => {
+                    observer.update(this.name + " ~ msg by nofifyAll");
+                });
+            }
+        }
+
+        var ob1 = new Observer('Alice'),
+            ob2 = new Observer('Bob');
+
+        var sub = new Subject('winter is coming');
+        sub.addObserver(ob1);
+        sub.addObserver(ob2);
+        sub.notifyAll();
+        // Alice get msg: winter is coming ~msg by nofifyAll
+        // Bob get msg: winter is coming ~msg by nofifyAll
+
+    </script>
+</body>
+
+</html>

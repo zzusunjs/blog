@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>发布订阅模式</title>
+</head>
+
+<body>
+    <script>
+        // eventChannel 后是一个 IIEF 立即执行的函数表达式
+        var eventChannel = (function () {
+            var events = {};
+            // 闭包，用于存储调度中心接收的消息
+            return {
+                // 订阅者通过 subscribe 函数订阅event事件
+                subscribe: function (event, handler) {
+                    if (!events.hasOwnProperty(event)) {
+                        events[event] = [];
+                    }
+                    events[event].push(handler);
+                },
+
+                receiveEvent: function (event) {
+                    if (events.hasOwnProperty(event)) {
+                        console.log(`非首次接收  ${event}, 尝试 FireEvent`);
+                        this.fireEvent(event, "from receiveEvent");
+                    } else {
+                        console.log(`首次接收  ${event}`);
+                        events[event] = [];
+                    }
+                },
+
+                // 调度中心选择 触发事件处理函数
+                fireEvent: function (event, msg) {
+                    if (events.hasOwnProperty(event)) {
+                        // 有对应的事件处理函数
+                        events[event].forEach(handler => {
+                            handler(msg);
+                            // 调用每个事件处理函数
+                        });
+                    }
+                },
+
+                remove: function (event, handler) {
+                    // 移除事件的某一个处理函数
+                    if (events.hasOwnProperty(event)) {
+                        let index = events[event].indexOf(handler);
+                        // 放心，indexOf 使用的是 ===
+                        if (index !== -1) {
+                            events[event].splice(index, 1);
+                        }
+                    }
+                },
+
+                removeAll: function (event) {
+                    // 移除某个事件的所有处理函数
+                    if (events.hasOwnProperty(event)) {
+                        events[event] = [];
+                    }
+                }
+            }
+        })();
+
+        var handler = function (msg) {
+            console.log(`handler is running : ${msg}`);
+        }
+
+        // publisher 通过 receiveEvent 来发布事件
+        eventChannel.receiveEvent('AREUOK');
+        eventChannel.subscribe('AREUOK', handler);
+        eventChannel.receiveEvent('AREUOK');
+        eventChannel.fireEvent('AREUOK', 'Year, I AM OK');
+        // 首次接收  AREUOK
+        // 非首次接收  AREUOK, 尝试 FireEvent
+        // handler is running: from receiveEvent
+        // handler is running: Year, I AM OK
+    </script>
+</body>
+
+</html>
