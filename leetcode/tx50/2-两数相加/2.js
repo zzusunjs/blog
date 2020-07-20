@@ -61,3 +61,65 @@ var addTwoNumbers = function(l1, l2) {
 
     return head;
 };
+
+/**
+ * 20200720 增加一种 简化写法
+ * 
+*/
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} l1
+ * @param {ListNode} l2
+ * @return {ListNode}
+ */
+var addTwoNumbers = function(l1, l2) {
+
+    if(l1 === null && l2 !== null){
+        return l2;
+    }else if(l1 !== null && l2 === null){
+        return l1;
+    }else if(l1 === null && l2 === null){
+        return null;
+    }else{
+
+        let head = new ListNode(0),
+            current = head,
+            head1 = l1,
+            head2 = l2,
+            carry = 0,
+            value1 = 0,
+            value2 = 0;
+
+        while(head1 !== null || head2 !== null || carry !== 0){
+            
+            // 创建新的节点并指向它
+            let node = new ListNode(0);
+            current.next = node;
+            current = current.next;
+
+            if(head1){
+                value1 = head1.val;
+                head1 = head1.next;
+            }else{
+                value1 = 0;
+            }
+
+            if(head2){
+                value2 = head2.val;
+                head2 = head2.next;
+            }else{
+                value2 = 0;
+            }
+
+            current.val = (value1 + value2 + carry) % 10;
+            carry = parseInt((value1 + value2 + carry) / 10);
+        }
+        return head.next;
+    }
+};
