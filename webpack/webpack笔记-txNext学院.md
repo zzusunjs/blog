@@ -390,4 +390,56 @@ webpack-dev-server // 启动 webpack-dev-server 可以监听文件目录变化
     // webpack-dev-server 带参数命令过长的话可以 在package.json 中自定义命令
     ```
 
+    - 配置热更新 HMR 
     
+      ? ? 待解决，如何验证已经启用了 HMR 
+
+----
+
+
+
+##### webpack 性能调优
+
+- 打包结果优化 （空间维度，体积尽量小）
+- 构建过程优化（时间维度，速度尽可能快）
+- Tree-Shaking
+
+
+
+介绍插件
+
+```js
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// 通过树图的形式可视化 打包结果中各个文件的大小
+```
+
+<img src="./pics/webpackBundleAnalyzer.bmp" width="600px">
+
+
+
+
+
+构建速度和打包结果的优化很多时候是耦合在一起的。优化构建的思路，什么在耗时。
+
+1. 一些大型模块不去解析算了。
+2. 减少查找。（减少干活的量）
+3. （增加干活的人，多线程 HappyPack，thread-loader (webpack.config.js 中摆在所有loader之前)，简单项目不要，反而多线程会减慢速度）
+4. 预编译 ， 动态链接库
+
+
+
+webpack  自身的优化思想 tree-shaking (本质上消除无用的 js  代码)
+
+dec 即 无用代码消除，在编译器中早有实现， 而 tree-shaking 可以看做 dce 的 一种实现方式。实验还需要再去做。
+
+
+
+---
+
+
+
+##### webpack  不止于 pack
+
+- 前端发展的产物
+- 模块化打包方案
+- 工程化方案
