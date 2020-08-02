@@ -386,7 +386,7 @@ webpack-dev-server // 启动 webpack-dev-server 可以监听文件目录变化
 
     ```js
     webpack-dev-server --open // 启动服务并打开浏览器
-    webpack-dev-server --config webpck.config.dev-js // 指定按照配置启动
+    webpack-dev-server --config webpack.config.dev-js // 指定按照配置启动
     // webpack-dev-server 带参数命令过长的话可以 在package.json 中自定义命令
     ```
 

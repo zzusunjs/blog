@@ -3,3 +3,5 @@
 webpack/babel-demo/node_modules
 webpack/learnWebpack/node_modules
 webpack/react-demo/node_modules
+Vue/learnVue/node_modules
+Vue/tmp/node_modules
