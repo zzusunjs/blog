@@ -846,3 +846,64 @@ const ele = this.$refs.ul1;
 注意： DevTools 为chrome 浏览器工具，可以查看 vuex 中的数据。只有 Actions 才有异步操作，mutations 可以整合多个操作。
 
 - vue-router
+
+  - 面试考点不多
+
+  - 路由模式 （hash，H5 history）
+
+    - hash 模式，（默认）如 `http://abc.com/#/user/10`
+    - H5 history 模式，如 `http://abc.com/user/20` 需要服务端支持，无特殊需求可以使用前者。
+
+    ```js
+    const router = new VueRouter({
+        mode: 'history',
+        routes: ... 
+    })
+    ```
+
+  -  路由配置 （动态路由，懒加载）
+
+  ```js
+  const router = new VueRouter({
+      routes : [
+          // 动态路由参数以冒号开头，能命中 /user/10, /user/20 等格式的路由
+          {path: './user/:id', component: User}
+      ]
+  })
+  
+  
+  // User.vue 
+  const user = {
+      template: `<div>User {{ $route.params.id }}</div>`
+      // 获取通过动态路由传入的参数
+  }
+  ```
+
+  ```js
+  // 懒加载
+  
+  export default new VueRouter({
+      routes: [
+          {
+              path: '/',
+              component: () => import("../components/main.vue")
+          },
+          {
+              path: '/feedback',
+              component: () => import("../components/feedback.vue")
+          }
+      ]
+  })
+  ```
+
+  
+
+  
+
+----
+
+##### 总结
+
+- 基本使用，组件使用
+- 高级特性
+- Vuex 和 Vue-Router 使用

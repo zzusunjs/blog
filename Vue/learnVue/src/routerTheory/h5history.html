@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>h5 hsitory</title>
+</head>
+<body>
+    <p> h5 hsitory test </p>
+    <button id="btn"> 修改 hash </button>
+
+    <script>
+
+        // 页面初次加载 获取 path
+         document.addEventListener('DOMContentLoaded', ()=>{
+             console.log('hash ', location.pathname);
+         });
+
+         // 使用 pushState 打开新的路由，不会刷新页面
+         document.getElementById('btn').addEventListener('click', ()=> {
+            const state = {name: 'page1'};
+            console.log("切换路由到 page1");
+            history.pushState(state, '', 'page1');
+         });
+
+         // 浏览器的前进和后退
+         window.onpopstate = () => {
+             console.log('onpopstate ', event.state, location.pathname);
+         }
+
+         // 服务端需要做配合，保证前端 以 h5 histogy 进行跳转的这些地址返回同一个页面，
+         // 否则浏览器一刷新就找不到地址了
+
+    </script>
+    
+</body>
+</html>

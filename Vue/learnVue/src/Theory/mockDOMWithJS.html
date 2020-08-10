@@ -1,0 +1,41 @@
+<div id="div1" class="container">
+    <p>vdom</p>
+    <ul style="font-size: 20px;">
+        <li>a</li>
+    </ul>
+</div>
+
+<!-- 对应的js 可以使 -->
+
+
+<script>
+vdomObj = {
+    tag: 'div',
+    attribute:{
+        id: 'div1',
+        className: 'container',
+    },
+    children:[
+        {
+            tag: 'p',
+            attribute:{},
+            children: 'vdom',
+        },
+        {
+            tag: 'ul',
+            attribute:{
+                style: 'font-size: 20px',
+            },
+            children:[
+                {
+                    tag: 'li',
+                    attribute:{},
+                    children: 'a',
+                }
+            ],
+        }
+    ],
+}
+
+</script>
+

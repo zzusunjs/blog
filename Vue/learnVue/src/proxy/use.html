@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>proxy</title>
+</head>
+
+<body>
+    <script>
+        // proxy 基本使用
+
+        const data = {
+            name: 'zhangsan',
+            age: 24,
+            nums: [1, 2, 3]
+        }
+
+        const array = [1,2,3];
+        // proxyData.push(100)
+
+        const proxyData = new Proxy(array, {
+            get(target, key, receiver) {
+                // target: 原生的data 
+                // key : key
+                // reveiver : 其实是 proxyData
+
+                // Reflect.ownKeys([1,2,3]) ==> ["0", "1", "2", "length"]
+                // Reflect.ownKeys({a: 10, b: 20}) ==> ["a", "b"]
+
+                // 只处理非原型的属性
+                const ownKeys = Reflect.ownKeys(target);
+                if(ownKeys.includes(key)){
+                    console.log('get', key);
+                    // 监听
+                }
+                const result = Reflect.get(target, key, receiver);
+                
+                return result;
+                // 返回get 结果
+            },
+
+            set(target, key, val, receiver) {
+
+                // 重复修改不处理
+                const oldValue = target[key];
+                if(val === oldValue){
+                    return true;
+                }
+                const result = Reflect.set(target, key, val, receiver)
+                console.log('set', key, val);
+                console.log("set result ", result);
+                // 返回设置成功的意义在于有些对象可以被 defineProperty 为 不可修改的
+                return result;
+                // 是否设置成功
+            },
+
+            deleteProperty(target, key) {
+                const result = Reflect.deleteProperty(target, key);
+                console.log("delete property ", key);
+                console.log("delete result ", result);
+                return result;
+                // 是否删除成功
+            }
+        });
+
+        // 可以监听数组变化  通过下标的赋值呢 无法监听，但可以监听到 get 的动作？
+        // 可以监听属性新增和删除
+
+        // delete proxyData.age 删除的用法
+
+    
+    </script>
+
+</body>
+
+</html>
