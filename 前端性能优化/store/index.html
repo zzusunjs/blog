@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cookie示例</title>
+</head>
+
+<body>
+    <div id="name"></div>
+    <div id="gender"></div>
+    <script>
+        // cookie 操作
+        // document.cookie = "userName=sjs";
+        // document.cookie = "msg=RUOK";
+        // // 返回一个由 key value 组成的字符串
+        // console.log(document.cookie);
+
+        // if (window.localStorage) {
+        //     // 判断是否支持 html5 中的 localStorage
+        //     // localStorage.setItem("name", "SJS");
+        //     // localStorage.setItem("gender", "male");
+        //     // 执行之后已经存储，代码注释了，下面的代码依然能正常执行
+
+        //     let name = localStorage.getItem('name');
+        //     let gender = localStorage.getItem('gender');
+
+        //     document.getElementById('name').innerHTML = name;
+        //     document.getElementById('gender').innerHTML = gender;
+        // }
+
+        // debugger;
+        let testContent = localStorage.getItem('testjs');
+        if (testContent) {
+            eval(testContent);
+        } else {
+            let xmlhttprequest = new XMLHttpRequest();
+
+            xmlhttprequest.onreadystatechange = () => {
+                if (xmlhttprequest.readyState === 4 && xmlhttprequest.status === 200) {
+                    let responseText = xmlhttprequest.responseText;
+                    // console.log("reponseText", responseText);  // 乱码
+                    eval(responseText);
+                    localStorage.setItem('testjs', responseText);
+                } else {
+                    console.log("request failed ", xmlhttprequest.readyState, xmlhttprequest.status);
+                }
+            }
+
+            xmlhttprequest.onprogress = (e) => {
+                // 监听数据传输过程
+                e = e || event;
+                if (e.lengthComputable) {
+                    console.log("Received " + e.loaded + ' er ' + e.total + ' bytes');
+                }
+            }
+
+            xmlhttprequest.open("GET", "./test.js", true);
+
+            xmlhttprequest.send();
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>

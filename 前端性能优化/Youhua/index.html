@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #rect{
+            /* position: relative;
+            top: 5px; */
+            /* transform: translateY(0); */
+
+            opacity: 1;
+            transform: translateZ(0);
+            /* visibility: visible; */
+
+
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="rect"></div>
+    <script>
+        setTimeout(()=> {
+            // document.getElementById('rect').style.top = '100px';
+            // document.getElementById('rect').style.transform = 'translateY(100px)';
+
+            document.getElementById('rect').style.opacity = 0;
+            // document.getElementById('rect').style.visibility = 'hidden';
+            
+
+        }, 2000);
+    </script>
+</body>
+</html>
+
+<!-- 使用 top 会触发回流，页面变化的总耗时为 0.15 + 0.18 + 0.14 + 0.15 + 0.28 = 0.9 ms -->
+<!-- 0.19 + 0.17 + 0.18 = 0.54-->
