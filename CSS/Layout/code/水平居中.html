@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水平居中布局</title>
+    <style>
+        .parent{ 
+            width: 100%;
+            height: 200px;
+            background-color: #cccccc;
+
+            /* text-align: center; */
+            /* text-align 是为文本内容设置对齐方式
+               left 左对齐
+               center 居中对齐
+               right 右对齐
+             */
+        }
+        /* .child{
+            width: 200px;
+            height: 200px;
+            background-color:pink; */
+
+            /* display 属性
+            block 块级元素
+            inline 行内元素, width 和 height 属性无效, 所以必须是 inline-block 而不能是inline 
+            (text-align属性对于行内元素有效)
+            inline-block 行内块级元素, width height 有效(块级+内联) */
+
+            /* display: inline-block;
+            text-align: left;
+        } */
+
+        /* 第二种解决方案 */
+
+        .child{
+            display: table;
+            /* display: block; */
+            /* display: inline; */
+            /* table 和 block 都可以，但是inline 不行，无法设置宽度 */
+            margin: 0 auto;
+
+            /* margin属性, 外边距 
+            一个值，表示上下左右
+            两个值，第一个表示上下，第二个表示左右
+            三个值，第一个表示上，第二个表示左右，第三个表示下
+            四个值，表示上右下左
+            margin: 0 auto 表示上下边距为 0, 左右边距为 auto
+            ,即浏览器自动等分。
+            */
+
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+
+            /* position: absolute; */
+            /* position: fixed; */
+            /* float: right; */
+
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child">
+            文本
+        </div>
+    </div>
+</body>
+</html>
