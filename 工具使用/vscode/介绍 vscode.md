@@ -103,22 +103,18 @@ title: 介绍 vscode
 
     
 
-
-
-
-
 常用快捷键
 
 - 复制粘贴，ctrl + c, ctrl + v
 - 整行复制粘贴，无需选中内容，光标在行内任意位置，ctrl + c, ctrl + v 即可。
 - 查找， ctrl + f， 按 f3查找下一个。光标在输入框的时候，回车即可查找下一个。
-- 替换， ctrl + h
+- **替换， ctrl + h**
 - 保存， ctrl + s
 - 行注释， ctrl + /
-- 块注释，选中, shift + alt + a
+- **块注释，选中, shift + alt + a**
 - 上方复制粘贴一行， alt+ shift + 上方向键
 - 下方赋值粘贴一行，alt+ shift + 下方向键
-- 插入到下一行（光标跳转） ctrl + enter
+- **插入到下一行（光标跳转） ctrl + enter**
 - 文件夹查找，ctrl + shift + f  (活动栏的搜索而已，不记得也可以)
 - 格式化代码， alt + shift + f  （右键格式化代码的快捷方式）
 - 快捷键映射，将其他编辑器的快捷键映射到 vscode 上，例如 sublime txt, atom。设置方式为，文件 > 首选项 > 键映射。 自定义快捷键， 文件 > 首选项 > 键盘快捷方式
@@ -176,9 +172,20 @@ Remote 为远程仓库， Repository 是本地仓库，checkout 切换到特定�
 
   - `git pull`  拉取远程修改到本地 
 
+<img src="./pics/vscode-git.png" width=400>
 
 
 
+##### 常用插件推荐
+
+- CSS Peek: html 与 css 关联，ctrl 显示html 元素样式，ctrl + 单击跳转到样式定义。安装后重启 vscode 生效。（推荐）
+- Prettier ： 代码格式化
+- Icon Fonts ： 图标集，如 Font Awesome, Glyphicons , 图标集元素名称自动补齐。
+- Auto Rename Tag: 自动重命名标签，修改开始标签，自动修改结束标签。（推荐）
+- HTML Boilerplate : HTML 模板，自定义模板
+- color info： 颜色提示，显示颜色的各种格式，color picker
+- Auto close Tag: 自动闭合标签
+- HTML CSS Support : HTML 中 css class 智能提示，提示已经引入的样式表中的类名或 ID
 
 ##### 引用
 
