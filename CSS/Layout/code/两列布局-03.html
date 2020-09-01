@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>两列布局-03 table</title>
+    <style>
+        .parent{
+            width: 100%;
+            height: 200px;
+            background-color: #cccccc;
+
+            /* 表格的单元格宽度会自动分配，默认平分，一侧固定宽度，一侧占有剩余全部 */
+            display: table;
+            /* 列宽由表格宽度和列宽度决定 */
+            table-layout: fixed;
+            /* https://www.runoob.com/cssref/pr-tab-table-layout.html */
+        }
+        .left, .right{
+            height: 200px;
+            background-color: tomato;
+
+            display: table-cell;
+        }
+        .left{
+            background-color: teal;
+
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="left">
+            left table cell
+        </div>
+        <div class="right">
+            right table cell
+        </div>
+    </div>
+</body>
+</html>

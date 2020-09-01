@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三列布局-02-圣杯布局</title>
+    <style>
+        .parent{
+            width: 100%;
+            height: 200px;
+        }
+        .left, .right, .center{
+            height: 200px;
+        }
+
+        .left{
+            width: 200px;
+            background-color: #cccccc;
+
+            float: left;
+        }
+        .center{
+            background-color: tomato;
+
+            margin-left: 200px;
+            margin-right: 200px;
+        }
+        .right{
+            width: 200px;
+            background-color: teal;
+
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <!-- right 位于 center 之前是因为，浮动的元素无法占据非浮动元素在一行中剩余的位置，而非浮动的元素则可以占据浮动的元素在一行中剩余的位置。如果按照 left, center, right的方式去做，right会保存在下一行 -->
+    <div class="parent">
+        <div class="left">
+            左侧定宽
+        </div>
+        <div class="right">
+            右侧定宽
+        </div>
+        <div class="center">
+            中间自适应
+        </div>
+    </div>
+</body>
+</html>

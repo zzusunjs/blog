@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三列布局-圣杯布局-02</title>
+    <style>
+        .parent {
+            height: 200px;
+            width: auto;
+            /* 这里不要再写 width:100% 会出问题 */
+            /* 数值耦合，留出左右的位置,使用margin 或者 padding都可以 */
+            /* margin-left: 200px;
+            margin-right: 200px; */
+
+            padding: 0 200px;
+        }
+
+        .left,
+        .right,
+        .center {
+            height: 200px;
+            float: left;
+        }
+
+        .center {
+            background-color: tomato;
+            width: 100%;
+        }
+
+        .left {
+            width: 200px;
+            background-color: #cccccc;
+
+            /* 移动到上一行 */
+            margin-left: -100%;
+
+            /*有 position 才可以使用定位，relative 不会脱离文档流，更容易控制*/
+            /* 移动到指定位置 */
+            position: relative;
+            left: -200px;
+        }
+
+        .right {
+            width: 200px;
+            background-color: teal;
+
+            margin-left: -200px;
+            position: relative;
+            /* right: -200px; */
+            left: 200px;
+        }
+        .header, .footer{
+            height: 50px;
+            margin: 10px 0;
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header"></div>
+    <div class="parent">
+        <!-- center 位于最前，加速解析，有利于seo -->
+        <div class="center">
+            中间自适应
+        </div>
+        <div class="left">
+            左侧定宽
+        </div>
+        <div class="right">
+            右侧定宽
+        </div>
+    </div>
+    <div class="footer"></div>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三列布局01-float + margin</title>
+    <style>
+        .parent{
+            width: 100%;
+            height: 200px;
+
+            display: table;
+            /* 第三种解决方案需要使用一个div 包裹所有的子元素 */
+        }
+
+        .left, .center, .right{
+            height: 200px;
+            display: table-cell;
+        }
+
+        .left{
+            /* 定宽 */
+            width: 200px;
+            background-color: #cccccc;
+            /* float: left; */
+
+        }
+        .center{
+            width: 300px;
+            background-color: tomato;
+            /* float: left; */
+        }
+        .right{
+            background-color: teal;
+
+            /* margin-left: 500px; */
+            /* 第二种方案，左侧两个仍然是float */
+            /* overflow:hidder 生成一个bfc 去除float 的影响 */
+            /* overflow: hidden; */
+
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="left">
+            left
+        </div>
+        <div class="center">
+            center
+        </div>
+        <div class="right">
+            right
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>居中布局</title>
+    <style>
+        .parent{
+            width: 600px;
+            height: 400px;
+            background-color: #cccccc;
+
+            /* 解决方案一 absolute + transform */
+            /* 父元素设置一个定位 */
+            position: relative;
+
+            /* 解决方案按 使用 table-cell + verticalAlign 垂直居中，table + margin 水平居中 */
+
+            /* display: table-cell; */
+            /* <td> */
+            /* vertical-align: middle; */
+        }
+        .child{
+            width: 200px;
+            height: 200px;
+            background-color: tomato;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* .child{ */
+            /* width: 200px;
+            height: 200px;
+            background-color: brown;
+
+            display: block;  */
+            /* <table> */
+            /* display: table; */
+            /* margin: 0 auto;
+        } */
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child">
+            居中布局文本
+        </div>
+    </div>
+</body>
+</html>

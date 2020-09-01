@@ -10,6 +10,10 @@
             height: 200px;
             background-color: #cccccc;
 
+            /* 第三种方案，需要父容器开启定位，absolute fixed relative 任何一个值都可以开启定位,
+            只有 position 默认值 static 表示不开启定位*/
+            position: relative;
+
             /* text-align: center; */
             /* text-align 是为文本内容设置对齐方式
                left 左对齐
@@ -34,12 +38,12 @@
 
         /* 第二种解决方案 */
 
-        .child{
-            display: table;
+        /* .child{ */
+            /* display: table; */
             /* display: block; */
             /* display: inline; */
             /* table 和 block 都可以，但是inline 不行，无法设置宽度 */
-            margin: 0 auto;
+            /* margin: 0 auto; */
 
             /* margin属性, 外边距 
             一个值，表示上下左右
@@ -50,14 +54,31 @@
             ,即浏览器自动等分。
             */
 
-            width: 200px;
-            height: 200px;
-            background-color: blue;
+            /* width: 200px; */
+            /* height: 200px; */
+            /* background-color: blue; */
 
             /* position: absolute; */
             /* position: fixed; */
             /* float: right; */
 
+        /* } */
+
+        /* 第三种解决方案 absolute + transform*/
+
+
+        .child{
+            
+            position: absolute;
+            /* 当前元素设置为绝对定位之后，如果父级元素没有开启定位的话，当前元素相对于页面定位，否认这相对于父级元素开启定位。
+             */
+            width: 300px;
+            height: 200px;
+            background-color: tomato;
+            left: 50%;
+            /* 子元素的左侧距离父元素左侧 50% 距离 */
+            transform: translateX(-50%);
+            /* 子元素向左移动自身宽度的一半 */
         }
     </style>
 </head>
