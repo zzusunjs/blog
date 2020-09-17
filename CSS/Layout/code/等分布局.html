@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>等分布局</title>
+    <style>
+        .parent-wrapper{
+            margin-left: -20px;
+            overflow: hidden;
+        }
+        .parent {
+            /* 子元素浮动之后为了防止高度塌陷设置高度 */
+            height: 200px;
+        }
+        .column1,
+        .column2,
+        .column3,
+        .column4 {
+            height: 100%;
+            width: 25%;
+            float: left;
+            padding-left: 20px;
+
+            box-sizing: border-box;
+        }
+
+        .inner{
+            height: 200px;
+        }
+
+        .column1 .inner {
+            background-color: tomato;
+            /* 实际开发颜色最好不用单词，不同浏览器之间可能有差异 */
+        }
+
+        .column2 .inner{
+            background-color: brown;
+        }
+
+        .column3 .inner{
+            background-color: cadetblue;
+        }
+
+        .column4 .inner{
+            background-color: teal;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent-wrapper">
+        <div class="parent">
+            <div class="column1">
+                <div class="inner"></div>
+            </div>
+            <div class="column2">
+                <div class="inner"></div>
+            </div>
+            <div class="column3">
+                <div class="inner"></div>
+            </div>
+            <div class="column4">
+                <div class="inner"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

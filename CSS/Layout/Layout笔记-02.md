@@ -44,7 +44,7 @@ title: 一课全面掌握主流布局-笔记-02
   
               /* margin-left: 500px; */
               /* 第二种方案，左侧两个仍然是float */
-              /* overflow:hidder 生成一个bfc 去除float 的影响 */
+              /* overflow:hidden 生成一个bfc 去除float 的影响 */
               /* overflow: hidden; */
   
           }
@@ -263,5 +263,462 @@ title: 一课全面掌握主流布局-笔记-02
 
     
 
- 
+##### 等分布局
+
+- 定义，等分布局就是一行被分成若干列，每一列的宽度一致
+
+- 实现方式
+
+  - float 
+
+    ```css
+    	.parent{
+                height: 200px;
+                background-color: #cccccc;
+            }
+            .column1, .column2, .column3, .column4{
+                height: 100%;
+                width: 25%;
+                float: left;
+            }
+            .column1{
+                background-color: tomato;
+                /* 实际开发颜色最好不用单词，不同浏览器之间可能有差异 */
+            }
+            .column2{
+                background-color: brown;
+            }
+            .column3{
+                background-color: cadetblue;
+            }
+            .column4{
+                background-color: teal;
+            }
+    
+    	<div class="parent">
+            <div class="column1">1</div>
+            <div class="column2">2</div>
+            <div class="column3">3</div>
+            <div class="column4">4</div>
+        </div>
+    ```
+
+    <img src="./pics/dengfen.png">
+
+    
+
+  - display 以及 table
+
+    ```css
+    	.parent{
+                /* 注意表格额宽度如果不写要有单元格宽度之和决定 */
+                width: 100%;
+                /* table */
+                display: table;
+    
+                height: 200px;
+            }
+    
+            .column1, .column2, .column3, .column4{
+                /* table cell 自动等分 */
+                display: table-cell;
+                height: 200px;
+            } 
+            .column1{
+                background-color: tomato;
+            }
+            .column2{
+                background-color: #ccc;
+            }
+            .column3{
+                background-color: brown;
+            }
+            .column4{
+                background-color: teal;
+            }
+    
+    	<div class="parent">
+            <div class="column1">column1</div>
+            <div class="column2">column2</div>
+            <div class="column3">column3</div>
+            <div class="column4">column4</div>
+        </div>
+    ```
+
+- 等分布局存在间距的问题
+
+  <img src="./pics/dengfen-margin.png" width=500>
+
+  公式： 间距 + 容器宽度 = （间距 + 列宽度）*  N
+
+  (套路，当现有页面布局无法解决问题的时候，增加父级容器或子级元素)
+
+  - 通过 负 margin 消除 多余间隙，box-sizing 实现带间距的等分
+
+    ```css
+    	.parent-wrapper{
+                margin-left: -20px;
+                overflow: hidden;
+            }
+            .parent {
+                /* 子元素浮动之后为了防止高度塌陷设置高度 */
+                height: 200px;
+            }
+            .column1,
+            .column2,
+            .column3,
+            .column4 {
+                height: 100%;
+                width: 25%;
+                float: left;
+                padding-left: 20px;
+    
+                box-sizing: border-box;
+            }
+    
+            .inner{
+                height: 200px;
+            }
+    
+            .column1 .inner {
+                background-color: tomato;
+            /* 实际开发颜色最好不用单词，不同浏览器之间可能有差异 */
+            }
+    
+            .column2 .inner{
+                background-color: brown;
+            }
+    
+            .column3 .inner{
+                background-color: cadetblue;
+            }
+    
+            .column4 .inner{
+                background-color: teal;
+            }
+    
+    	<div class="parent-wrapper">
+            <div class="parent">
+                <div class="column1">
+                    <div class="inner"></div>
+                </div>
+                <div class="column2">
+                    <div class="inner"></div>
+                </div>
+                <div class="column3">
+                    <div class="inner"></div>
+                </div>
+                <div class="column4">
+                    <div class="inner"></div>
+                </div>
+            </div>
+        </div>
+    ```
+
+    <img src="./pics/dengfen-withMargin.png">
+
+  - 通过 负的 margin 和 padding 在表格布局中实现 带边距的等分布局
+
+    ```css
+    	.parent-wrapper {
+                margin-left: -20px;
+            }
+    
+            .parent {
+                /* 注意表格额宽度如果不写要有单元格宽度之和决定 */
+                width: 100%;
+                display: table;
+    
+                height: 200px;
+            }
+    
+            .column1,
+            .column2,
+            .column3,
+            .column4 {
+                /* table cell 自动等分 */
+                display: table-cell;
+                padding-left: 20px;
+                height: 200px;
+            }
+    
+            .inner {
+                height: 200px;
+            }
+    
+            .column1 .inner {
+                background-color: tomato;
+            }
+    
+            .column2 .inner {
+                background-color: #ccc;
+            }
+    
+            .column3 .inner {
+                background-color: brown;
+            }
+    
+            .column4 .inner {
+                background-color: teal;
+            }
+    
+    	<div class="parent-wrapper">
+            <div class="parent">
+                <div class="column1">
+                    <div class="inner"></div>
+                </div>
+                <div class="column2">
+                    <div class="inner"></div>
+                </div>
+                <div class="column3">
+                    <div class="inner"></div>
+                </div>
+                <div class="column4">
+                    <div class="inner"></div>
+                </div>
+            </div>
+        </div>
+    ```
+
+    <img src="./pics/dengfen-withTableMargin.png">
+
+---
+
+##### 等高布局
+
+- 定义，一行划分为若干列，每一列的高度都是相同的值。
+
+- 实现方式
+
+  - display 属性中 table 值实现等高布局
+
+    ```css
+    	.parent{
+                /* 表格中的单元格默认等高，浏览器兼容性好 */
+                display: table;
+            }
+            .left, .right{
+                width: 300px;
+                display: table-cell;
+            }
+            .left{
+                background-color: tomato;
+            }
+            .right{
+                background-color: teal;
+            }
+    
+    	<div class="parent">
+            <div class="left">left side</div>
+            <div class="right">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus qui nihil, quo nulla consequuntur veniam maiores et ad repellendus numquam in pariatur ducimus molestiae dolor dolore. Exercitationem autem aliquid explicabo!
+            </div>
+        </div>
+    ```
+
+    <img src="./pics/denggao-table.png">
+
+    
+
+  - padding + margin 属性实现等高布局效果。仅仅是视觉上的等高，但并不是真正的布局结构。
+
+    ```css
+    	  .parent{
+                overflow: hidden;
+            }
+            .left, .right{
+                width: 300px;
+                float: left;
+    
+                padding-bottom: 9999px;
+                /* 向上移动 */
+                margin-bottom: -9999px;
+            }
+            .left{
+                background-color: tomato;
+            }
+            .right{
+                background-color: teal;
+            }
+    
+    	<div class="parent">
+            <div class="left">
+                left is left
+            </div>
+            <div class="right">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto, rerum. Commodi in aspernatur asperiores reiciendis ipsum ex voluptas amet sequi. Voluptate nulla laborum molestias placeat natus officiis animi officia quas.
+            </div>
+        </div>
+    ```
+
+    <img src="./pics/denggao-paddingAndMarginAndOverflow.png">
+
+----
+
+##### CSS3 多列布局
+
+- columns 属性，一个简写属性
+
+  - column-count 属性: 定义列的数量，或者允许的最大列数
+
+    - auto, 默认值，表示列的数量又其他 CSS 属性决定
+    - number, 必须是整数，用于表示定义列的数量
+
+  - column-width 属性: 定义列的宽度
+
+    - auto, 默认值，由 CSS 属性决定
+    - length, 必须是整数
+
+    ```css
+    .parent{
+                height: 300px;
+                background-color: #cccccc;
+                /* column-count: 4;
+                column-width: 300px; */
+                columns: 4 300px;
+            }
+            .column1, .column2, .column3, .column4{
+                /* width: 300px; */
+                height: 300px;
+            }
+            .column1{
+                background-color: tomato;
+            }
+            .column2{
+                background-color: brown;
+            }
+            .column3{
+                background-color: cadetblue;
+            }
+            .column4{
+                background-color: teal;
+            }
+    
+    	<div class="parent">
+            <div class="column1"></div>
+            <div class="column2"></div>
+            <div class="column3"></div>
+            <div class="column4"></div>        
+        </div>
+    ```
+
+    <img src="./pics/columns.png">
+
+  - column-gap 属性设置 列与列之间的间距，该属性需要为多列显示时的元素设置。
+
+    - normal: 用于表示浏览器定义列的默认间距
+    - length: 必须是正整数，表示定义列之间的间距
+
+  - column-rule 属性定义列与列之间的边框，包括边框宽度，边框颜色以及边框样式。
+
+    - column-rule-width 边框宽度
+    - column-rule-color 边框颜色
+    - column-rule-style 边框样式
+
+  - 横跨多列  column-span 定义一个列元素是否跨列
+
+    - none: 不横跨列
+    - all: 跨所有列
+
+  - 列的填充 , column-fill 属性用于定义列的高度是由内容决定还是统一高度
+
+    - auto， 默认值，列的高度由北荣决定
+    - balance, 列的高度根据内容最多的一列高度为准
+
+    <img src="./pics/columns-all.png">
+
+    
+
+----
+
+##### 全屏布局
+
+- 定义，全屏布局指 html 页面铺满整个浏览器窗口，并且没有滚动条，而且还可以跟随浏览器的大小变化而变化。
+
+<img src="./pics/quanping-example.png" width=500>
+
+```css
+	/* 去除默认样式 */
+        html,
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        header {
+            /* 默认宽度为父元素宽度 100% */
+            height: 100px;
+            background-color: tomato;
+            /* 定位到最上方 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        footer {
+            height: 100px;
+            background-color: brown;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .content {
+            position: fixed;
+            top: 100px;
+            bottom: 100px;
+            left: 0;
+            right: 0;
+            background-color: #cccccc;
+        }
+
+        .left {
+            width: 200px;
+            height: 100%;
+            float: left;
+            background-color: cyan;
+        }
+
+        .right {
+            height: 100%;
+            margin-left: 200px;
+            /* width: cala(100% - 200px); */
+            background-color: #cccccc;
+            overflow: auto;
+        }
+
+	<header></header>
+    <div class="content">
+        <div class="left"></div>
+        <div class="right">
+            <div class="text-box">
+                <p>
+                    Hello World
+                </p>
+            </div>
+        </div>
+    </div>
+    <footer></footer>
+```
+
+<img src="./pics/quanping.png">
+
+
+
+----
+
+总结
+
+- 居中布局
+- 多列布局
+  - 两列布局
+  - 三列布局
+    - 圣杯布局
+    - 双飞翼布局
+- 全屏布局
+- 未涉及到的内容
+  - 网格布局 Grid
+  - 弹性盒子布局 Flex
 

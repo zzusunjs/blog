@@ -427,7 +427,7 @@ export default {
 - $nextTick
   - Vue 是异步渲染 （部分原理会详细讲解）
   - data 改变之后，DOM 不会立即渲染
-  - $nextTick 会在 DOM 渲染之后出发，获取最新的 DOM 节点
+  - $nextTick 会在 DOM 渲染之后触发，获取最新的 DOM 节点
 
 ```jsx
 <template>

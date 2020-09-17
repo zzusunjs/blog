@@ -30,10 +30,11 @@
             console.log(count);
             console.log("event ", e);
             container.innerHTML = count++;
+            // console.log("event handler this ", this);
         };
-        //container.onmousemove = getUserAction; 
-        //container.onmousemove = debounce(getUserAction, 100);
-        container.onmousemove = throttleByTimer(getUserAction, 100);
+        // container.onmousemove = getUserAction; 
+        container.onmousemove = debounce(getUserAction, 100);
+        // container.onmousemove = throttleByTimer(getUserAction, 100);
 
         // 事件防抖，在频繁触发事件的时候，通过事件防抖降低事件触发频率，降低回调函数压力
         function debounce(fn, wait) {
@@ -44,6 +45,7 @@
                 // 
                 // 设置 fn 函数调用时的 this 和 参数
                 var context = this,
+                    // args = Array.prototype.slice.call(arguments);
                     args = arguments;
                 // 如果此前存在定时器的话，取消之前的定时器重新计时
                 if (timer) {

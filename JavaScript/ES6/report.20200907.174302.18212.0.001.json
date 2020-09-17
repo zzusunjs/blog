@@ -1,0 +1,409 @@
+
+{
+  "header": {
+    "reportVersion": 1,
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20200907.174302.18212.0.001.json",
+    "dumpEventTime": "2020-09-07T17:43:02Z",
+    "dumpEventTimeStamp": "1599471782178",
+    "processId": 18212,
+    "cwd": "d:\\files\\blog\\JavaScript\\ES6",
+    "commandLine": [
+      "node",
+      "d:\\files\\blog\\JavaScript\\ES6\\Promise\\test.js"
+    ],
+    "nodejsVersion": "v12.16.1",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "win32",
+    "componentVersions": {
+      "node": "12.16.1",
+      "v8": "7.8.279.23-node.31",
+      "uv": "1.34.0",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "72",
+      "nghttp2": "1.40.0",
+      "napi": "5",
+      "llhttp": "2.0.4",
+      "http_parser": "2.9.3",
+      "openssl": "1.1.1d",
+      "cldr": "35.1",
+      "icu": "64.2",
+      "tz": "2019c",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "lts": "Erbium",
+      "headersUrl": "https://nodejs.org/download/release/v12.16.1/node-v12.16.1-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v12.16.1/node-v12.16.1.tar.gz",
+      "libUrl": "https://nodejs.org/download/release/v12.16.1/win-x64/node.lib"
+    },
+    "osName": "Windows_NT",
+    "osRelease": "10.0.18362",
+    "osVersion": "Windows 10 Home China",
+    "osMachine": "x86_64",
+    "cpus": [
+      {
+        "model": "Intel(R) Core(TM) i5-10210U CPU @ 1.60GHz",
+        "speed": 2112,
+        "user": 3886296,
+        "nice": 0,
+        "sys": 6354046,
+        "idle": 96120828,
+        "irq": 3546203
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-10210U CPU @ 1.60GHz",
+        "speed": 2112,
+        "user": 1739609,
+        "nice": 0,
+        "sys": 2067625,
+        "idle": 102553140,
+        "irq": 54015
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-10210U CPU @ 1.60GHz",
+        "speed": 2112,
+        "user": 5535156,
+        "nice": 0,
+        "sys": 2314515,
+        "idle": 98510687,
+        "irq": 46359
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-10210U CPU @ 1.60GHz",
+        "speed": 2112,
+        "user": 1978812,
+        "nice": 0,
+        "sys": 903343,
+        "idle": 103478187,
+        "irq": 27453
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-10210U CPU @ 1.60GHz",
+        "speed": 2112,
+        "user": 4558906,
+        "nice": 0,
+        "sys": 2175046,
+        "idle": 99626406,
+        "irq": 55312
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-10210U CPU @ 1.60GHz",
+        "speed": 2112,
+        "user": 3222968,
+        "nice": 0,
+        "sys": 1743359,
+        "idle": 101394031,
+        "irq": 30125
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-10210U CPU @ 1.60GHz",
+        "speed": 2112,
+        "user": 3707734,
+        "nice": 0,
+        "sys": 2018968,
+        "idle": 100633656,
+        "irq": 39562
+      },
+      {
+        "model": "Intel(R) Core(TM) i5-10210U CPU @ 1.60GHz",
+        "speed": 2112,
+        "user": 2636406,
+        "nice": 0,
+        "sys": 1777656,
+        "idle": 101946296,
+        "irq": 25656
+      }
+    ],
+    "networkInterfaces": [
+      {
+        "name": "WLAN",
+        "internal": false,
+        "mac": "c8:09:a8:38:97:49",
+        "address": "fe80::4d6c:652a:5111:e077",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 7
+      },
+      {
+        "name": "WLAN",
+        "internal": false,
+        "mac": "c8:09:a8:38:97:49",
+        "address": "192.168.11.124",
+        "netmask": "255.255.255.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "::1",
+        "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "127.0.0.1",
+        "netmask": "255.0.0.0",
+        "family": "IPv4"
+      }
+    ],
+    "host": "LAPTOP-J4LO2MCO"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x00007ff6eb7019f9",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+10873"
+    },
+    {
+      "pc": "0x00007ff6eb705e1c",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+28316"
+    },
+    {
+      "pc": "0x00007ff6eb704dd8",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+24152"
+    },
+    {
+      "pc": "0x00007ff6eb8034cb",
+      "symbol": "v8::base::CPU::has_sse+38363"
+    },
+    {
+      "pc": "0x00007ff6ec019f4e",
+      "symbol": "v8::Isolate::ReportExternalAllocationLimitReached+94"
+    },
+    {
+      "pc": "0x00007ff6ec002021",
+      "symbol": "v8::SharedArrayBuffer::Externalize+833"
+    },
+    {
+      "pc": "0x00007ff6ebece57c",
+      "symbol": "v8::internal::Heap::EphemeronKeyWriteBarrierFromCode+1436"
+    },
+    {
+      "pc": "0x00007ff6ebeeb47b",
+      "symbol": "v8::internal::Factory::NewFixedArrayWithFiller+59"
+    },
+    {
+      "pc": "0x00007ff6ebeeb431",
+      "symbol": "v8::internal::Factory::NewUninitializedFixedArray+65"
+    },
+    {
+      "pc": "0x00007ff6ebdc857f",
+      "symbol": "v8::debug::Script::GetIsolate+8527"
+    },
+    {
+      "pc": "0x00007ff6ebc7824a",
+      "symbol": "v8::internal::interpreter::JumpTableTargetOffsets::iterator::operator=+162938"
+    },
+    {
+      "pc": "0x00007ff6ec464ddd",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+546637"
+    },
+    {
+      "pc": "0x000000e3f28443f5",
+      "symbol": ""
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 2730450944,
+    "totalCommittedMemory": 2730450944,
+    "usedMemory": 2695250712,
+    "availableMemory": 16759296,
+    "memoryLimit": 2197815296,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 262144,
+        "committedMemory": 262144,
+        "capacity": 32808,
+        "used": 32808,
+        "available": 0
+      },
+      "new_space": {
+        "memorySize": 33554432,
+        "committedMemory": 33554432,
+        "capacity": 16759296,
+        "used": 0,
+        "available": 16759296
+      },
+      "old_space": {
+        "memorySize": 2244608,
+        "committedMemory": 2244608,
+        "capacity": 1267720,
+        "used": 1267720,
+        "available": 0
+      },
+      "code_space": {
+        "memorySize": 430080,
+        "committedMemory": 430080,
+        "capacity": 158816,
+        "used": 158816,
+        "available": 0
+      },
+      "map_space": {
+        "memorySize": 266240,
+        "committedMemory": 266240,
+        "capacity": 170480,
+        "used": 170480,
+        "available": 0
+      },
+      "large_object_space": {
+        "memorySize": 1791131648,
+        "committedMemory": 1791131648,
+        "capacity": 1791107224,
+        "used": 1791107224,
+        "available": 0
+      },
+      "code_large_object_space": {
+        "memorySize": 49152,
+        "committedMemory": 49152,
+        "capacity": 2784,
+        "used": 2784,
+        "available": 0
+      },
+      "new_large_object_space": {
+        "memorySize": 902512640,
+        "committedMemory": 902512640,
+        "capacity": 902510880,
+        "used": 902510880,
+        "available": 0
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 2.109,
+    "kernelCpuSeconds": 0.546,
+    "cpuConsumptionPercent": 132.75,
+    "maxRss": 2742874112,
+    "pageFaults": {
+      "IORequired": 675229,
+      "IONotRequired": 0
+    },
+    "fsActivity": {
+      "reads": 1,
+      "writes": 88
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "=D:": "d:\\files\\blog\\JavaScript\\ES6",
+    "ALLUSERSPROFILE": "C:\\ProgramData",
+    "AMD_ENTRYPOINT": "vs/workbench/services/extensions/node/extensionHostProcess",
+    "APPDATA": "C:\\Users\\sunjs\\AppData\\Roaming",
+    "APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL": "true",
+    "asl.log": "Destination=file",
+    "CommonProgramFiles": "C:\\Program Files\\Common Files",
+    "CommonProgramFiles(x86)": "C:\\Program Files (x86)\\Common Files",
+    "CommonProgramW6432": "C:\\Program Files\\Common Files",
+    "COMPUTERNAME": "LAPTOP-J4LO2MCO",
+    "ComSpec": "C:\\Windows\\system32\\cmd.exe",
+    "DriverData": "C:\\Windows\\System32\\Drivers\\DriverData",
+    "ELECTRON_NO_ATTACH_CONSOLE": "1",
+    "ELECTRON_RUN_AS_NODE": "1",
+    "HOMEDRIVE": "C:",
+    "HOMEPATH": "\\Users\\sunjs",
+    "LOCALAPPDATA": "C:\\Users\\sunjs\\AppData\\Local",
+    "LOGONSERVER": "\\\\LAPTOP-J4LO2MCO",
+    "NUMBER_OF_PROCESSORS": "8",
+    "OneDrive": "C:\\Users\\sunjs\\OneDrive",
+    "OneDriveConsumer": "C:\\Users\\sunjs\\OneDrive",
+    "ORIGINAL_XDG_CURRENT_DESKTOP": "undefined",
+    "OS": "Windows_NT",
+    "Path": "D:\\installed_software\\python37\\Scripts\\;D:\\installed_software\\python37\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;D:\\installed_software\\nodejs\\;D:\\installed_software\\python37;D:\\installed_software\\Git\\cmd;C:\\Users\\sunjs\\AppData\\Local\\Microsoft\\WindowsApps;D:\\installed_software\\Microsoft VS Code\\bin;C:\\Users\\sunjs\\AppData\\Roaming\\npm;C:\\Program Files\\Bandizip\\;D:\\installed_software\\python37;",
+    "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW",
+    "PIPE_LOGGING": "true",
+    "PROCESSOR_ARCHITECTURE": "AMD64",
+    "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 142 Stepping 12, GenuineIntel",
+    "PROCESSOR_LEVEL": "6",
+    "PROCESSOR_REVISION": "8e0c",
+    "ProgramData": "C:\\ProgramData",
+    "ProgramFiles": "C:\\Program Files",
+    "ProgramFiles(x86)": "C:\\Program Files (x86)",
+    "ProgramW6432": "C:\\Program Files",
+    "PROMPT": "$P$G",
+    "PSModulePath": "C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules",
+    "PUBLIC": "C:\\Users\\Public",
+    "SESSIONNAME": "Console",
+    "SystemDrive": "C:",
+    "SystemRoot": "C:\\Windows",
+    "TEMP": "C:\\Users\\sunjs\\AppData\\Local\\Temp",
+    "TMP": "C:\\Users\\sunjs\\AppData\\Local\\Temp",
+    "USERDOMAIN": "LAPTOP-J4LO2MCO",
+    "USERDOMAIN_ROAMINGPROFILE": "LAPTOP-J4LO2MCO",
+    "USERNAME": "sunjs",
+    "USERPROFILE": "C:\\Users\\sunjs",
+    "VERBOSE_LOGGING": "true",
+    "VSCODE_CLI": "1",
+    "VSCODE_CWD": "D:\\files\\blog\\JavaScript\\ES6",
+    "VSCODE_HANDLES_UNCAUGHT_ERRORS": "true",
+    "VSCODE_IPC_HOOK": "\\\\.\\pipe\\19da2fb67f4958f3b56ac6c341bcfba9-1.48.2-main-sock",
+    "VSCODE_IPC_HOOK_EXTHOST": "\\\\.\\pipe\\vscode-ipc-e9315b3f-7741-4291-91e6-696d755c1b39-sock",
+    "VSCODE_LOGS": "C:\\Users\\sunjs\\AppData\\Roaming\\Code\\logs\\20200907T093901",
+    "VSCODE_LOG_STACK": "false",
+    "VSCODE_NLS_CONFIG": "{\"locale\":\"zh-cn\",\"availableLanguages\":{\"*\":\"zh-cn\"},\"_languagePackId\":\"caa04df4233bbe458643fcea9c0bd745.zh-cn\",\"_translationsConfigFile\":\"C:\\\\Users\\\\sunjs\\\\AppData\\\\Roaming\\\\Code\\\\clp\\\\caa04df4233bbe458643fcea9c0bd745.zh-cn\\\\tcf.json\",\"_cacheRoot\":\"C:\\\\Users\\\\sunjs\\\\AppData\\\\Roaming\\\\Code\\\\clp\\\\caa04df4233bbe458643fcea9c0bd745.zh-cn\",\"_resolvedLanguagePackCoreLocation\":\"C:\\\\Users\\\\sunjs\\\\AppData\\\\Roaming\\\\Code\\\\clp\\\\caa04df4233bbe458643fcea9c0bd745.zh-cn\\\\a0479759d6e9ea56afa657e454193f72aef85bd0\",\"_corruptedFile\":\"C:\\\\Users\\\\sunjs\\\\AppData\\\\Roaming\\\\Code\\\\clp\\\\caa04df4233bbe458643fcea9c0bd745.zh-cn\\\\corrupted.info\",\"_languagePackSupport\":true}",
+    "VSCODE_NODE_CACHED_DATA_DIR": "C:\\Users\\sunjs\\AppData\\Roaming\\Code\\CachedData\\a0479759d6e9ea56afa657e454193f72aef85bd0",
+    "VSCODE_PID": "7452",
+    "windir": "C:\\Windows"
+  },
+  "sharedObjects": [
+    "D:\\installed_software\\nodejs\\node.exe",
+    "C:\\Windows\\SYSTEM32\\ntdll.dll",
+    "C:\\Windows\\System32\\KERNEL32.DLL",
+    "C:\\Windows\\System32\\KERNELBASE.dll",
+    "C:\\Windows\\System32\\WS2_32.dll",
+    "C:\\Windows\\System32\\RPCRT4.dll",
+    "C:\\Windows\\SYSTEM32\\dbghelp.dll",
+    "C:\\Windows\\System32\\PSAPI.DLL",
+    "C:\\Windows\\System32\\ucrtbase.dll",
+    "C:\\Windows\\System32\\ADVAPI32.dll",
+    "C:\\Windows\\System32\\msvcrt.dll",
+    "C:\\Windows\\SYSTEM32\\IPHLPAPI.DLL",
+    "C:\\Windows\\System32\\sechost.dll",
+    "C:\\Windows\\SYSTEM32\\USERENV.dll",
+    "C:\\Windows\\System32\\USER32.dll",
+    "C:\\Windows\\System32\\profapi.dll",
+    "C:\\Windows\\System32\\win32u.dll",
+    "C:\\Windows\\System32\\GDI32.dll",
+    "C:\\Windows\\System32\\gdi32full.dll",
+    "C:\\Windows\\System32\\msvcp_win.dll",
+    "C:\\Windows\\System32\\CRYPT32.dll",
+    "C:\\Windows\\System32\\MSASN1.dll",
+    "C:\\Windows\\System32\\bcrypt.dll",
+    "C:\\Windows\\SYSTEM32\\WINMM.dll",
+    "C:\\Windows\\SYSTEM32\\winmmbase.dll",
+    "C:\\Windows\\System32\\cfgmgr32.dll",
+    "C:\\Windows\\System32\\bcryptPrimitives.dll",
+    "C:\\Windows\\System32\\IMM32.DLL",
+    "C:\\Windows\\System32\\powrprof.dll",
+    "C:\\Windows\\System32\\UMPDC.dll",
+    "C:\\Windows\\SYSTEM32\\CRYPTBASE.DLL",
+    "C:\\Windows\\system32\\uxtheme.dll",
+    "C:\\Windows\\System32\\combase.dll",
+    "C:\\Windows\\system32\\mswsock.dll",
+    "C:\\Windows\\System32\\kernel.appcore.dll",
+    "C:\\Windows\\System32\\NSI.dll",
+    "C:\\Windows\\SYSTEM32\\dhcpcsvc6.DLL",
+    "C:\\Windows\\SYSTEM32\\dhcpcsvc.DLL",
+    "C:\\Windows\\SYSTEM32\\DNSAPI.dll",
+    "C:\\Windows\\system32\\napinsp.dll",
+    "C:\\Windows\\system32\\pnrpnsp.dll",
+    "C:\\Windows\\System32\\winrnr.dll",
+    "C:\\Windows\\system32\\NLAapi.dll",
+    "C:\\Windows\\system32\\wshbth.dll",
+    "C:\\Program Files\\Bonjour\\mdnsNSP.dll"
+  ]
+}

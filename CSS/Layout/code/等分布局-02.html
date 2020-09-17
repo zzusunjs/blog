@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>等分布局 table</title>
+    <style>
+        .parent-wrapper {
+            margin-left: -20px;
+        }
+
+        .parent {
+            /* 注意表格额宽度如果不写要有单元格宽度之和决定 */
+            width: 100%;
+            display: table;
+
+            height: 200px;
+        }
+
+        .column1,
+        .column2,
+        .column3,
+        .column4 {
+            /* table cell 自动等分 */
+            display: table-cell;
+            padding-left: 20px;
+            height: 200px;
+        }
+
+        .inner {
+            height: 200px;
+        }
+
+        .column1 .inner {
+            background-color: tomato;
+        }
+
+        .column2 .inner {
+            background-color: #ccc;
+        }
+
+        .column3 .inner {
+            background-color: brown;
+        }
+
+        .column4 .inner {
+            background-color: teal;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent-wrapper">
+        <div class="parent">
+            <div class="column1">
+                <div class="inner"></div>
+            </div>
+            <div class="column2">
+                <div class="inner"></div>
+            </div>
+            <div class="column3">
+                <div class="inner"></div>
+            </div>
+            <div class="column4">
+                <div class="inner"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

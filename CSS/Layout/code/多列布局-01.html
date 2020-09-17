@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多列布局</title>
+    <style>
+        .parent,
+        .parent2 {
+            margin-top: 10px;
+            /* width: 100%; */
+            height: 300px;
+            background-color: #cccccc;
+            /* column-count: 4;
+            column-width: 300px; */
+            columns: 4 300px;
+            column-gap: 30px;
+
+            /* column-rule-width: 5px;
+            column-rule-color: teal;
+            column-rule-style: dashed; */
+
+            column-rule: 5px double teal;
+        }
+
+        .column1,
+        .column2,
+        .column3,
+        .column4,
+        .column5 {
+            /* width: 300px; */
+            height: 300px;
+        }
+
+        .column1,
+        .column6 {
+            background-color: tomato;
+        }
+
+        .column2,
+        .column7 {
+            background-color: brown;
+        }
+
+        .column3,
+        .column8 {
+            background-color: cadetblue;
+        }
+
+        .column4,
+        .column9 {
+            background-color: teal;
+        }
+
+        .column5 {
+            background-color: rebeccapurple;
+
+            column-span: all;
+        }
+
+        .column6,
+        .column7,
+        .column8,
+        .column9 {
+
+            height: 200px;
+            /* css3 新特性，chrome浏览器尚未实现 */
+            column-fill: balance;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="column1"></div>
+        <div class="column2"></div>
+        <div class="column3"></div>
+        <div class="column4"></div>
+    </div>
+    <div class="parent2">
+        <div class="column5"></div>
+    </div>
+    <div class="parent">
+        <div class="column6">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime impedit ratione quo eius
+            molestiae? Repellendus porro quae, nisi ab numquam, totam praesentium itaque necessitatibus voluptatibus
+            impedit excepturi labore tenetur illum.</div>
+        <div class="column7">
+            RUOK
+        </div>
+        <div class="column8">
+            I am fine. Thank you.
+        </div>
+        <div class="column9">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam nobis beatae voluptates
+            iste ex blanditiis, natus non omnis architecto assumenda. Deserunt a aut ad similique dolorem animi
+            consequatur maxime! Corporis!</div>
+    </div>
+</body>
+
+</html>
